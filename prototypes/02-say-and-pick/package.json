@@ -1,0 +1,9 @@
+{
+  "name": "design-study-prototype-2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --watch server.mjs",
+    "mock": "MOCK=1 node --watch server.mjs"
+  }
+}

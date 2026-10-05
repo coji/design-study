@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ja" style="--header-height: 65px;"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>技術の話から、新しい事業をつくる。 | 株式会社TechTalk</title><meta name="description" content="経営と開発の両方を経験した代表が経営者と直接話し合い、新しい事業の構想から、動く最初のバージョンまで一緒につくります。株式会社TechTalk。"><meta name="author" content="TechTalk, Inc."><meta name="robots" content="index, follow"><meta property="og:type" content="website"><meta property="og:url" content="https://www.techtalk.jp"><meta property="og:title" content="技術の話から、新しい事業をつくる。 | 株式会社TechTalk"><meta property="og:description" content="経営と開発の両方を経験した代表が経営者と直接話し合い、新しい事業の構想から、動く最初のバージョンまで一緒につくります。株式会社TechTalk。"><meta property="og:site_name" content="株式会社TechTalk"><meta property="og:image" content="https://www.techtalk.jp/og-image.jpeg?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="ja_JP"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="技術の話から、新しい事業をつくる。 | 株式会社TechTalk"><meta name="twitter:description" content="経営と開発の両方を経験した代表が経営者と直接話し合い、新しい事業の構想から、動く最初のバージョンまで一緒につくります。株式会社TechTalk。"><meta name="twitter:image" content="https://www.techtalk.jp/og-image.jpeg?v=2"><link rel="canonical" href="https://www.techtalk.jp/"><link rel="alternate" hreflang="ja" href="https://www.techtalk.jp/"><link rel="alternate" hreflang="en" href="https://www.techtalk.jp/en"><link rel="alternate" hreflang="x-default" href="https://www.techtalk.jp/"><link rel="icon" href="https://www.techtalk.jp/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="https://www.techtalk.jp/favicon.svg"><link rel="apple-touch-icon" href="https://www.techtalk.jp/apple-touch-icon.png"><link rel="manifest" href="https://www.techtalk.jp/site.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com/"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous"><style>@import url("https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap");
+@layer base, rmx;
+@layer base {
+  :root { color-scheme: light; --bg: #f8f6f2; --surface: #ffffff; --border: #e4e0d8; --border-strong: #cfcac0; --text-strong: #1c1b18; --text-muted: #4a4843; --text-subtle: #6c6962; --accent: #1d62ab; --accent-soft: #e6eef7; --button-bg: #1c1b18; --button-text: #f8f6f2; --danger: #b42318; --danger-surface: #fbeae8; --shadow-image: 0 0 0 1px rgb(28 27 24 / 0.07), 0 24px 48px -24px rgb(28 27 24 / 0.22), 0 8px 16px -8px rgb(28 27 24 / 0.08); --t-12: 0.75rem; --t-14: 0.875rem; --t-16: 1rem; --t-18: 1.125rem; --t-20: 1.25rem; --t-28: 1.75rem; --t-display: clamp(1.875rem, 1rem + 4.6vw, 4.25rem); --r-control: 6px; --r-image: 12px; --header-height: 64px; }
+  @media (prefers-color-scheme: dark) {
+  :root { color-scheme: dark; --bg: #161513; --surface: #1e1d1a; --border: #2f2d29; --border-strong: #44413b; --text-strong: #f1eee8; --text-muted: #c4c0b7; --text-subtle: #8f8b83; --accent: #7fb0e6; --accent-soft: #1d2a38; --button-bg: #f1eee8; --button-text: #161513; --danger: #f2998f; --danger-surface: #3a1f1c; --shadow-image: 0 0 0 1px rgb(255 255 255 / 0.08), 0 24px 48px -24px rgb(0 0 0 / 0.6); }
+}
+  @media (width <= 860px) {
+  :root { --header-height: 108px; }
+}
+  @media (width < 360px) {
+  :root { --header-height: 190px; }
+}
+  *, ::before, ::after { box-sizing: border-box; }
+  * { margin: 0px; }
+  html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 8px); text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+  body { min-height: 100vh; background: var(--bg); color: var(--text-strong); font-family: "LINE Seed JP", system-ui, -apple-system, "Hiragino Sans", sans-serif; font-size: var(--t-16); line-height: 1.7; letter-spacing: 0.01em; word-break: auto-phrase; line-break: strict; text-autospace: normal; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, dd { text-wrap: pretty; }
+  ul, ol { padding: 0px; list-style: none; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  img, svg { display: block; max-width: 100%; }
+  img { height: auto; }
+  a { color: inherit; text-decoration: inherit; }
+  button, input, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @keyframes fade-up { 
+  0% { opacity: 0; transform: translateY(1.25rem); }
+  100% { opacity: 1; transform: none; }
+}
+  @keyframes spin { 
+  100% { transform: rotate(360deg); }
+}
+}
+
+@layer rmx.rmxc-1y73ycfykjk5w {
+  .rmxc-1y73ycfykjk5w { position: sticky; top: 0px; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border); }
+}
+@layer rmx.rmxc-1yhdtacc6mcon {
+  .rmxc-1yhdtacc6mcon { max-width: 70rem; margin-inline: auto; padding-inline: 1.5rem; }
+}
+@layer rmx.rmxc-1snmoge3s18m3 {
+  .rmxc-1snmoge3s18m3 { display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; padding-top: 12px; }
+  @media (width > 860px) {
+  .rmxc-1snmoge3s18m3 { flex-wrap: nowrap; column-gap: 32px; height: 64px; padding-top: 0px; }
+}
+}
+@layer rmx.rmxc-1edoamc34lquh {
+  .rmxc-1edoamc34lquh { margin-right: auto; }
+}
+@layer rmx.rmxc-1ljlcmfnfuxv0 {
+  .rmxc-1ljlcmfnfuxv0 {
+  display: inline-flex; align-items: baseline; font-size: var(--t-20); font-weight: 800; letter-spacing: -0.04em; color: var(--text-strong);
+  &::after { content: ""; width: 0.3em; height: 0.3em; margin-left: 0.08em; border-radius: 50%; background: var(--accent); }
+}
+}
+@layer rmx.rmxc-10suhxjjgqfk6 {
+  .rmxc-10suhxjjgqfk6 { display: flex; flex-wrap: wrap; column-gap: 16px; order: 3; width: 100%; margin-top: 4px; font-size: var(--t-14); color: var(--text-muted); }
+  @media (width > 860px) {
+  .rmxc-10suhxjjgqfk6 { order: 0; width: auto; flex-wrap: nowrap; margin-top: 0px; column-gap: 28px; }
+}
+}
+@layer rmx.rmxc-4qbz0n15fl0g0 {
+  .rmxc-4qbz0n15fl0g0 {
+  padding-block: 12px; white-space: nowrap; transition: color 150ms ease-out;
+  &:hover { color: var(--text-strong); }
+  &[aria-current="location"] { color: var(--text-strong); text-decoration: underline 1px; text-underline-offset: 8px; }
+}
+}
+@layer rmx.rmxc-c8gyoo1teu53f {
+  .rmxc-c8gyoo1teu53f { display: flex; align-items: center; gap: 20px; }
+}
+@layer rmx.rmxc-nyf7ez1sj6kaq {
+  .rmxc-nyf7ez1sj6kaq {
+  padding-block: 10px; font-size: var(--t-14); color: var(--text-subtle); transition: color 150ms ease-out;
+  &:hover { color: var(--text-strong); }
+}
+}
+@layer rmx.rmxc-1smnmad1d3ji08 {
+  .rmxc-1smnmad1d3ji08 {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 40px; padding-inline: 18px; border: 0px; border-radius: var(--r-control); font-size: var(--t-14); font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease-out, transform 150ms ease-out; background: var(--button-bg); color: var(--button-text); box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 0px inset;
+  &:active { transform: scale(0.97); }
+  &:hover { background: color-mix(in srgb, var(--button-bg) 86%, var(--bg)); }
+  &:disabled { opacity: 0.6; cursor: progress; }
+}
+  @media (forced-colors: active) {
+  .rmxc-1smnmad1d3ji08 { border: 1px solid buttontext; }
+}
+}
+@layer rmx.rmxc-elngacb9h1d1 {
+  .rmxc-elngacb9h1d1 { height: 36px; padding-inline: 14px; }
+}
+@layer rmx.rmxc-eogrkl1v425lc {
+  .rmxc-eogrkl1v425lc { padding-block: 64px 72px; }
+  @media (min-width: 900px) {
+  .rmxc-eogrkl1v425lc { padding-block: 104px 96px; }
+}
+}
+@layer rmx.rmxc-7a2p5g1f3s8rn {
+  .rmxc-7a2p5g1f3s8rn { font-size: var(--t-display); line-height: 1.25; font-weight: 700; letter-spacing: -0.025em; }
+}
+@layer rmx.rmxc-1qliqm6tq6d8t {
+  .rmxc-1qliqm6tq6d8t {
+  &:lang(ja) { display: inline-block; }
+}
+}
+@layer rmx.rmxc-9x2atwzczvbf {
+  .rmxc-9x2atwzczvbf { margin-top: 32px; max-width: 32em; font-size: var(--t-18); color: var(--text-muted); }
+  @media (min-width: 760px) {
+  .rmxc-9x2atwzczvbf { font-size: var(--t-20); line-height: 1.6; }
+}
+}
+@layer rmx.rmxc-1yynqgt1stpizs {
+  .rmxc-1yynqgt1stpizs { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+}
+@layer rmx.rmxc-1l1zmpnyk2waa {
+  .rmxc-1l1zmpnyk2waa {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 40px; padding-inline: 18px; border: 0px; border-radius: var(--r-control); font-size: var(--t-14); font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease-out, transform 150ms ease-out; background: transparent; color: var(--text-strong); box-shadow: inset 0 0 0 1px var(--border-strong);
+  &:active { transform: scale(0.97); }
+  &:hover { background: var(--surface); }
+}
+  @media (forced-colors: active) {
+  .rmxc-1l1zmpnyk2waa { border: 1px solid buttontext; }
+}
+}
+@layer rmx.rmxc-cxycampwzqhv {
+  .rmxc-cxycampwzqhv { margin-top: 24px; font-size: var(--t-14); color: var(--text-subtle); }
+}
+@layer rmx.rmxc-1htvvxwh1e6jx {
+  .rmxc-1htvvxwh1e6jx { padding-block: 72px; border-top: 1px solid var(--border); }
+  @media (min-width: 900px) {
+  .rmxc-1htvvxwh1e6jx { padding-block: 112px; }
+}
+}
+@layer rmx.rmxc-adv3gawyov8j {
+  .rmxc-adv3gawyov8j { display: grid; grid-template-columns: minmax(0px, 1fr); gap: 20px; }
+  @media (min-width: 900px) {
+  .rmxc-adv3gawyov8j { grid-template-columns: 220px minmax(0px, 1fr); align-items: baseline; gap: 48px; }
+}
+}
+@layer rmx.rmxc-w7gbzex6nr7d {
+  .rmxc-w7gbzex6nr7d { font-size: var(--t-14); line-height: 1.5; font-weight: 700; color: var(--text-subtle); }
+}
+@layer rmx.rmxc-fnl5621vkwwyl {
+  .rmxc-fnl5621vkwwyl { font-size: var(--t-28); line-height: 1.5; font-weight: 700; letter-spacing: -0.005em; max-width: 22em; }
+}
+@layer rmx.rmxc-zfpii51jllk6g {
+  .rmxc-zfpii51jllk6g { margin-top: 20px; max-width: 36em; color: var(--text-muted); }
+}
+@layer rmx.rmxc-z71n3l5nqmk {
+  .rmxc-z71n3l5nqmk { margin-top: 40px; border-top: 1px solid var(--border); }
+}
+@layer rmx.rmxc-1g7ef0jomxxs2 {
+  .rmxc-1g7ef0jomxxs2 { display: grid; grid-template-columns: minmax(0px, 1fr); gap: 6px; padding: 24px 0px; border-bottom: 1px solid var(--border); }
+  @media (min-width: 760px) {
+  .rmxc-1g7ef0jomxxs2 { grid-template-columns: minmax(0px, 1fr) minmax(0px, 1.2fr); gap: 32px; }
+}
+}
+@layer rmx.rmxc-1nfsn0519tv8ca {
+  .rmxc-1nfsn0519tv8ca { font-size: var(--t-16); line-height: 1.6; }
+}
+@layer rmx.rmxc-1kj5xaf1nz4rew {
+  .rmxc-1kj5xaf1nz4rew { color: var(--text-muted); }
+}
+@layer rmx.rmxc-1ayy0318powta {
+  .rmxc-1ayy0318powta { display: grid; grid-template-columns: minmax(0px, 1fr); gap: 8px; padding: 28px 0px; border-bottom: 1px solid var(--border); }
+  @media (min-width: 760px) {
+  .rmxc-1ayy0318powta { grid-template-columns: 220px minmax(0px, 1fr); gap: 32px; }
+}
+}
+@layer rmx.rmxc-fnul1p176l9d8 {
+  .rmxc-fnul1p176l9d8 { display: inline-block; width: 2em; color: var(--accent); font-variant-numeric: tabular-nums; }
+}
+@layer rmx.rmxc-1jl95tpetcle2 {
+  .rmxc-1jl95tpetcle2 { margin-top: 40px; max-width: 40em; padding: 20px 24px; border: 1px solid var(--border); border-radius: var(--r-control); }
+}
+@layer rmx.rmxc-yr7drkh83xvt {
+  .rmxc-yr7drkh83xvt { margin-bottom: 6px; font-size: var(--t-14); font-weight: 700; }
+}
+@layer rmx.rmxc-5zerel5d7izc {
+  .rmxc-5zerel5d7izc { font-size: var(--t-14); color: var(--text-muted); }
+}
+@layer rmx.rmxc-wb2sop7jwwbm {
+  .rmxc-wb2sop7jwwbm { margin: 48px 0px 0px; border-radius: var(--r-image); overflow: hidden; box-shadow: var(--shadow-image); background: var(--surface); }
+}
+@layer rmx.rmxc-wgub7zvovfg {
+  .rmxc-wgub7zvovfg { width: 100%; }
+  @media (prefers-color-scheme: dark) {
+  .rmxc-wgub7zvovfg { filter: brightness(0.86) contrast(1.04); }
+}
+}
+@layer rmx.rmxc-1n6fxvc180h4iv {
+  .rmxc-1n6fxvc180h4iv { padding: 12px 16px; font-size: var(--t-12); color: var(--text-subtle); border-top: 1px solid var(--border); background: var(--surface); }
+}
+@layer rmx.rmxc-7y3vtenn5ecr {
+  .rmxc-7y3vtenn5ecr { margin-top: 24px; }
+}
+@layer rmx.rmxc-mq2pimpdcjid {
+  .rmxc-mq2pimpdcjid {
+  color: var(--accent); text-decoration-line: underline; text-decoration-style: initial; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent); transition: text-decoration-color 150ms ease-out;
+  &:hover { text-decoration-color: var(--accent); }
+}
+}
+@layer rmx.rmxc-tfzw0s1dx69d7 {
+  .rmxc-tfzw0s1dx69d7 { display: inline-flex; align-items: center; gap: 3px; padding-block: 10px; }
+}
+@layer rmx.rmxc-103fd1d12tvf9w {
+  .rmxc-103fd1d12tvf9w { display: grid; grid-template-columns: minmax(0px, 1fr); gap: 24px; }
+  @media (min-width: 760px) {
+  .rmxc-103fd1d12tvf9w { grid-template-columns: 112px minmax(0px, 1fr); gap: 32px; }
+}
+}
+@layer rmx.rmxc-18l2r5l1bnjl0 {
+  .rmxc-18l2r5l1bnjl0 { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px var(--border-strong); }
+}
+@layer rmx.rmxc-1rdk5brk8cb4a {
+  .rmxc-1rdk5brk8cb4a { align-self: baseline; }
+}
+@layer rmx.rmxc-15i1dysuqzf63 {
+  .rmxc-15i1dysuqzf63 { margin-top: 4px; font-size: var(--t-14); color: var(--text-subtle); }
+}
+@layer rmx.rmxc-1dwvhmx10zoxue {
+  .rmxc-1dwvhmx10zoxue {
+  margin-top: 16px; max-width: 34em; color: var(--text-muted);
+  & + & { margin-top: 12px; }
+}
+}
+@layer rmx.rmxc-4nrvk4m3kalr {
+  .rmxc-4nrvk4m3kalr { margin-top: 8px; }
+}
+@layer rmx.rmxc-11gch2lz8ql84 {
+  .rmxc-11gch2lz8ql84 { display: flex; flex-wrap: wrap; column-gap: 24px; font-size: var(--t-14); }
+}
+@layer rmx.rmxc-1j5de566jt60t {
+  .rmxc-1j5de566jt60t { padding-block: 10px; }
+}
+@layer rmx.rmxc-xc5d5as4tpnb {
+  .rmxc-xc5d5as4tpnb {
+  display: grid; grid-template-columns: minmax(0px, 1fr); gap: 2px; padding: 18px 0px; border-bottom: 1px solid var(--border);
+  &:first-child { padding-top: 0px; }
+}
+  @media (min-width: 640px) {
+  .rmxc-xc5d5as4tpnb { grid-template-columns: 160px minmax(0px, 1fr); align-items: baseline; gap: 24px; }
+}
+}
+@layer rmx.rmxc-k3ydmh7l2agy {
+  .rmxc-k3ydmh7l2agy { font-size: var(--t-14); color: var(--text-subtle); }
+}
+@layer rmx.rmxc-18xeymj1mtz9wm {
+  .rmxc-18xeymj1mtz9wm { margin: 0px; }
+}
+@layer rmx.rmxc-ct06ih2cj8i6 {
+  .rmxc-ct06ih2cj8i6 { display: grid; grid-template-columns: minmax(0px, 1fr); gap: 48px; }
+  @media (min-width: 960px) {
+  .rmxc-ct06ih2cj8i6 { grid-template-columns: minmax(0px, 0.9fr) minmax(0px, 1.1fr); gap: 64px; }
+}
+}
+@layer rmx.rmxc-o4knke13kpphh {
+  .rmxc-o4knke13kpphh {
+  margin-top: 20px; max-width: 30em; color: var(--text-muted);
+  & + & { margin-top: 12px; }
+}
+}
+@layer rmx.rmxc-1rpklgq1l0z09x {
+  .rmxc-1rpklgq1l0z09x { border-top: 1px solid var(--border); padding: 40px 0px 56px; font-size: var(--t-14); color: var(--text-subtle); }
+}
+@layer rmx.rmxc-n41ujbe35pbw {
+  .rmxc-n41ujbe35pbw { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px 32px; }
+}
+@layer rmx.rmxc-1cwagfc4k2f5r {
+  .rmxc-1cwagfc4k2f5r {
+  display: inline-flex; align-items: baseline; font-size: var(--t-16); font-weight: 800; letter-spacing: -0.04em; color: var(--text-strong);
+  &::after { content: ""; width: 0.3em; height: 0.3em; margin-left: 0.08em; border-radius: 50%; background: var(--accent); }
+}
+}
+@layer rmx.rmxc-1r3cs75ymvrcq {
+  .rmxc-1r3cs75ymvrcq { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+}
+@layer rmx.rmxc-jigeq4co1x31 {
+  .rmxc-jigeq4co1x31 {
+  transition: color 150ms ease-out;
+  &:hover { color: var(--text-strong); }
+}
+}
+@layer rmx.rmxc-1pgtwm7tqkuzu {
+  .rmxc-1pgtwm7tqkuzu { padding-block: 0px; }
+}
+@layer rmx.rmxc-r6hz4patkiha {
+  .rmxc-r6hz4patkiha { display: grid; gap: 20px; }
+}
+@layer rmx.rmxc-9r4ojqw36a1z {
+  .rmxc-9r4ojqw36a1z { display: grid; grid-template-columns: minmax(0px, 1fr); gap: 20px; }
+  @media (min-width: 560px) {
+  .rmxc-9r4ojqw36a1z { grid-template-columns: repeat(2, minmax(0px, 1fr)); }
+}
+}
+@layer rmx.rmxc-q9d7z51tja318 {
+  .rmxc-q9d7z51tja318 { display: grid; gap: 8px; }
+}
+@layer rmx.rmxc-135efx01wwrr4t {
+  .rmxc-135efx01wwrr4t { font-size: var(--t-14); font-weight: 700; line-height: 1.5; }
+}
+@layer rmx.rmxc-67yol9qp4fm {
+  .rmxc-67yol9qp4fm {
+  width: 100%; padding: 10px 12px; border: 0px; border-radius: var(--r-control); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-strong); font-size: var(--t-16); color: var(--text-strong); transition: box-shadow 150ms ease-out;
+  &:focus-visible { outline: none; box-shadow: inset 0 0 0 1.5px var(--accent), 0 0 0 4px var(--accent-soft); }
+  &::placeholder { color: var(--text-subtle); }
+  &[aria-invalid="true"] { box-shadow: inset 0 0 0 1.5px var(--danger); }
+  &[aria-invalid="true"]:focus-visible { box-shadow: inset 0 0 0 1.5px var(--danger), 0 0 0 4px var(--accent-soft); }
+}
+  @media (forced-colors: active) {
+  .rmxc-67yol9qp4fm {
+  border: 1px solid canvastext;
+  &:focus-visible { outline: highlight solid 2px; }
+}
+}
+}
+@layer rmx.rmxc-1e4lb331bftmgi {
+  .rmxc-1e4lb331bftmgi { margin-left: 8px; font-weight: 400; color: var(--text-subtle); }
+}
+@layer rmx.rmxc-1us01guytcazf {
+  .rmxc-1us01guytcazf { min-height: 168px; resize: vertical; line-height: 1.7; }
+}
+@layer rmx.rmxc-2to77pam79i8 {
+  .rmxc-2to77pam79i8 { display: none; }
+}
+@layer rmx.rmxc-oqrs6osg5qlj {
+  .rmxc-oqrs6osg5qlj { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: var(--t-14); color: var(--text-muted); }
+}
+@layer rmx.rmxc-kh2f0on3qaid {
+  .rmxc-kh2f0on3qaid { flex: 0 0 auto; width: 18px; height: 18px; accent-color: var(--accent); }
+}
+@layer rmx.rmxc-27n97gx8ct2l {
+  .rmxc-27n97gx8ct2l { display: grid; justify-items: start; gap: 12px; }
+}</style></head><body><header class="rmxc-1y73ycfykjk5w"><div class="rmxc-1yhdtacc6mcon rmxc-1snmoge3s18m3"><span class="rmxc-1edoamc34lquh"><a href="https://www.techtalk.jp/#top" class="rmxc-1ljlcmfnfuxv0">TechTalk</a></span><!-- rmx:h:h4d5d6218 --><nav aria-label="ページ内" class="rmxc-10suhxjjgqfk6"><a href="https://www.techtalk.jp/#when" class="rmxc-4qbz0n15fl0g0">こんなとき</a><a href="https://www.techtalk.jp/#approach" class="rmxc-4qbz0n15fl0g0">進め方</a><a href="https://www.techtalk.jp/#products" class="rmxc-4qbz0n15fl0g0">プロダクト</a><a href="https://www.techtalk.jp/#profile" class="rmxc-4qbz0n15fl0g0">代表</a></nav><!-- /rmx:h --><div class="rmxc-c8gyoo1teu53f"><a href="https://www.techtalk.jp/en" hreflang="en" lang="en" data-rmx-document="" class="rmxc-nyf7ez1sj6kaq">English</a><a href="https://www.techtalk.jp/#contact" class="rmxc-1smnmad1d3ji08 rmxc-elngacb9h1d1">相談する</a></div></div></header><main id="top"><div class="rmxc-eogrkl1v425lc"><div class="rmxc-1yhdtacc6mcon"><h1 class="rmxc-7a2p5g1f3s8rn"><span class="rmxc-1qliqm6tq6d8t">技術の話から、</span><span class="rmxc-1qliqm6tq6d8t">新しい事業をつくる。</span></h1><p class="rmxc-9x2atwzczvbf">事業の話を、技術の言葉に直さずにそのまま聞かせてください。技術の話は、経営と開発の両方を経験した代表がします。何ができるか、どんな価値をつくれるか、事業として立ち上げられるかを構想の段階から一緒に考え、動く最初のバージョンまで自分で作ります。</p><div class="rmxc-1yynqgt1stpizs"><a href="https://www.techtalk.jp/#contact" class="rmxc-1smnmad1d3ji08">相談する</a><a href="https://www.techtalk.jp/#approach" class="rmxc-1l1zmpnyk2waa">進め方を見る</a></div><p class="rmxc-cxycampwzqhv">まだ固まっていない話でかまいません。初回の打ち合わせは無料で、最初から代表の溝口が出ます。</p></div></div><section id="when" aria-labelledby="section-when" class="rmxc-1htvvxwh1e6jx"><div class="rmxc-1yhdtacc6mcon rmxc-adv3gawyov8j"><p id="section-when" class="rmxc-w7gbzex6nr7d">こんなとき</p><div><h2 class="rmxc-fnl5621vkwwyl"><span class="rmxc-1qliqm6tq6d8t">技術のことを、</span><span class="rmxc-1qliqm6tq6d8t">経営の言葉で相談したいとき。</span></h2><p class="rmxc-zfpii51jllk6g">新しい事業を始めようとしている経営者や事業責任者の方から、よくうかがう状況です。</p><ul role="list" class="rmxc-z71n3l5nqmk"><li class="rmxc-1g7ef0jomxxs2"><h3 class="rmxc-1nfsn0519tv8ca">アイデアはあるが、技術的にできるのか見当がつかない</h3><p class="rmxc-1kj5xaf1nz4rew">話をうかがいながら、できることと難しいこと、最初に試すことを整理していきます。</p></li><li class="rmxc-1g7ef0jomxxs2"><h3 class="rmxc-1nfsn0519tv8ca">開発会社に相談したら、まず仕様書を求められた</h3><p class="rmxc-1kj5xaf1nz4rew">仕様書がなくてもかまいません。何を売るかをうかがい、何を作るかを決めるところから一緒に始めます。</p></li><li class="rmxc-1g7ef0jomxxs2"><h3 class="rmxc-1nfsn0519tv8ca">社内に、技術の判断を任せられる人がいない</h3><p class="rmxc-1kj5xaf1nz4rew">技術の選択肢を、費用や時間、事業への影響に置き換えてお話しするので、経営の判断として決められます。</p></li></ul></div></div></section><section id="approach" aria-labelledby="section-approach" class="rmxc-1htvvxwh1e6jx"><div class="rmxc-1yhdtacc6mcon rmxc-adv3gawyov8j"><p id="section-approach" class="rmxc-w7gbzex6nr7d">進め方</p><div><h2 class="rmxc-fnl5621vkwwyl"><span class="rmxc-1qliqm6tq6d8t">話し合いから、</span><span class="rmxc-1qliqm6tq6d8t">最初のバージョンが動くまで。</span></h2><p class="rmxc-zfpii51jllk6g">話し合う相手と作る人が同じなので、話したことがそのまま形になり、手戻りが出にくい進め方です。</p><ol role="list" class="rmxc-z71n3l5nqmk"><li class="rmxc-1ayy0318powta"><h3 class="rmxc-1nfsn0519tv8ca"><span aria-hidden="true" class="rmxc-fnul1p176l9d8">1</span>構想を聞く</h3><p class="rmxc-1kj5xaf1nz4rew">事業の目的と、予算や体制、期限といった前提から話を始めます。何から手をつけるか、開発の規模はどのくらいになりそうかを、一緒に考えます。</p></li><li class="rmxc-1ayy0318powta"><h3 class="rmxc-1nfsn0519tv8ca"><span aria-hidden="true" class="rmxc-fnul1p176l9d8">2</span>最初に作るものを絞る</h3><p class="rmxc-1kj5xaf1nz4rew">市場の反応を確かめられる、いちばん小さな形を決めます。事業が伸びたときに作り直しが少なくて済む技術を選びます。</p></li><li class="rmxc-1ayy0318powta"><h3 class="rmxc-1nfsn0519tv8ca"><span aria-hidden="true" class="rmxc-fnul1p176l9d8">3</span>自分で作り、一緒に見る</h3><p class="rmxc-1kj5xaf1nz4rew">設計から実装まで進めます。動くものを見ながら次に作るものを決め、必要なら社内の開発体制づくりまで手伝います。</p></li></ol><div class="rmxc-1jl95tpetcle2"><h3 class="rmxc-yr7drkh83xvt">お受けしていないご依頼</h3><p class="rmxc-5zerel5d7izc">仕様が決まっていて開発だけを頼みたい場合や、常駐・人月単位での契約はお受けしていません。作るものから一緒に決める進め方をとっているためです。</p></div></div></div></section><section id="products" aria-labelledby="section-products" class="rmxc-1htvvxwh1e6jx"><div class="rmxc-1yhdtacc6mcon rmxc-adv3gawyov8j"><p id="section-products" class="rmxc-w7gbzex6nr7d">プロダクト</p><div><h2 class="rmxc-fnl5621vkwwyl"><span class="rmxc-1qliqm6tq6d8t">同じやり方で、</span><span class="rmxc-1qliqm6tq6d8t">自社の事業も動かしています。</span></h2><p class="rmxc-zfpii51jllk6g">Artifact Shareは、AIが作ったレポートや資料をURLひとつで共有するサービスです。何を作るかを決めるところから開発、運営まで、代表がひとりで手がけています。</p><figure class="rmxc-wb2sop7jwwbm"><img src="assets/caac91f57fc5.webp" width="1493" height="1260" decoding="async" alt="Artifact Shareで共有した月次売上レポートの画面。バージョン番号と閲覧数が表示されている" class="rmxc-wgub7zvovfg"><figcaption class="rmxc-1n6fxvc180h4iv">サンプルのレポートを共有した画面。同じURLのままバージョンを重ねて更新できる</figcaption></figure><p class="rmxc-7y3vtenn5ecr"><a href="https://artifactshare.com/" target="_blank" rel="noopener" class="rmxc-mq2pimpdcjid rmxc-tfzw0s1dx69d7">artifactshare.comを見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></p></div></div></section><section id="profile" aria-labelledby="section-profile" class="rmxc-1htvvxwh1e6jx"><div class="rmxc-1yhdtacc6mcon rmxc-adv3gawyov8j"><p id="section-profile" class="rmxc-w7gbzex6nr7d">代表</p><div><div class="rmxc-103fd1d12tvf9w"><img src="assets/02f8631677a9.webp" width="112" height="112" decoding="async" alt="溝口浩二の写真" class="rmxc-18l2r5l1bnjl0"><div class="rmxc-1rdk5brk8cb4a"><h2 class="rmxc-fnl5621vkwwyl">溝口 浩二</h2><p class="rmxc-15i1dysuqzf63">代表取締役 ／ Coji Mizoguchi</p><p class="rmxc-1dwvhmx10zoxue">がんばって作ったものが、事業として立ち上がらず無駄になる。そんな経験を何度もしてきました。良いものを作っただけでは、まだ足りません。ビジネスとして成り立ったとき、はじめて作った意味が生まれます。</p><p class="rmxc-1dwvhmx10zoxue">だから今は、作る前の段階から経営者と話し、事業になるかを一緒に見極めたうえで、自分の手で形にしています。</p><div class="rmxc-4nrvk4m3kalr"><div class="rmxc-11gch2lz8ql84"><a href="https://www.techtalk.jp/biography" class="rmxc-mq2pimpdcjid rmxc-1j5de566jt60t">経歴を見る</a><a href="https://github.com/coji" target="_blank" rel="noopener" class="rmxc-mq2pimpdcjid rmxc-tfzw0s1dx69d7">GitHub<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><a href="https://zenn.dev/coji" target="_blank" rel="noopener" class="rmxc-mq2pimpdcjid rmxc-tfzw0s1dx69d7">Zenn<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><a href="https://x.com/techtalkjp" target="_blank" rel="noopener" class="rmxc-mq2pimpdcjid rmxc-tfzw0s1dx69d7">X<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><a href="https://www.facebook.com/mizoguchi.coji" target="_blank" rel="noopener" class="rmxc-mq2pimpdcjid rmxc-tfzw0s1dx69d7">Facebook<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></div></div></div></div></div></div></section><section id="company" aria-labelledby="section-company" class="rmxc-1htvvxwh1e6jx"><div class="rmxc-1yhdtacc6mcon rmxc-adv3gawyov8j"><h2 id="section-company" class="rmxc-w7gbzex6nr7d">会社概要</h2><div><dl><div class="rmxc-xc5d5as4tpnb"><dt class="rmxc-k3ydmh7l2agy">会社名</dt><dd class="rmxc-18xeymj1mtz9wm">株式会社TechTalk</dd></div><div class="rmxc-xc5d5as4tpnb"><dt class="rmxc-k3ydmh7l2agy">代表取締役</dt><dd class="rmxc-18xeymj1mtz9wm">溝口 浩二</dd></div><div class="rmxc-xc5d5as4tpnb"><dt class="rmxc-k3ydmh7l2agy">設立</dt><dd class="rmxc-18xeymj1mtz9wm">2019年7月</dd></div><div class="rmxc-xc5d5as4tpnb"><dt class="rmxc-k3ydmh7l2agy">所在地</dt><dd class="rmxc-18xeymj1mtz9wm">東京都中央区</dd></div><div class="rmxc-xc5d5as4tpnb"><dt class="rmxc-k3ydmh7l2agy">事業内容</dt><dd class="rmxc-18xeymj1mtz9wm">新規事業の立ち上げと技術面の相談、ソフトウェア開発、自社プロダクトArtifact Shareの開発・運営</dd></div></dl></div></div></section><section id="contact" aria-labelledby="section-contact" class="rmxc-1htvvxwh1e6jx"><div class="rmxc-1yhdtacc6mcon rmxc-adv3gawyov8j"><p id="section-contact" class="rmxc-w7gbzex6nr7d">お問い合わせ</p><div><div class="rmxc-ct06ih2cj8i6"><div><h2 class="rmxc-fnl5621vkwwyl"><span class="rmxc-1qliqm6tq6d8t">事業の話を、</span><span class="rmxc-1qliqm6tq6d8t">そのまま聞かせてください。</span></h2><p class="rmxc-o4knke13kpphh">新しい事業の構想、技術でできるかどうか、進め方などのご相談を、まだ形になっていない段階からうかがいます。</p><p class="rmxc-o4knke13kpphh">いただいた内容は代表の溝口が直接読み、返信します。初回の打ち合わせは無料です。</p></div><div><!-- rmx:f:f97694f8a --><form method="post" data-rmx-target="contact" data-rmx-src="/contact-form" data-rmx-reset-scroll="false" class="rmxc-r6hz4patkiha"><div data-rmx-key="who" class="rmxc-9r4ojqw36a1z"><div data-rmx-key="name" class="rmxc-q9d7z51tja318"><label for="contact-name" class="rmxc-135efx01wwrr4t">お名前</label><input id="contact-name" name="name" type="text" autocomplete="name" required="" maxlength="100" value="" class="rmxc-67yol9qp4fm" style=""></div><div data-rmx-key="company" class="rmxc-q9d7z51tja318"><label for="contact-company" class="rmxc-135efx01wwrr4t">会社名<span class="rmxc-1e4lb331bftmgi">任意</span></label><input id="contact-company" name="company" type="text" autocomplete="organization" maxlength="100" value="" class="rmxc-67yol9qp4fm" style=""></div></div><div data-rmx-key="email" class="rmxc-q9d7z51tja318"><label for="contact-email" class="rmxc-135efx01wwrr4t">メールアドレス</label><input id="contact-email" name="email" type="email" autocomplete="email" required="" maxlength="100" value="" class="rmxc-67yol9qp4fm" style=""></div><div data-rmx-key="message" class="rmxc-q9d7z51tja318"><label for="contact-message" class="rmxc-135efx01wwrr4t">相談内容</label><textarea id="contact-message" name="message" required="" maxlength="10000" rows="6" placeholder="考えている事業と、いま困っていることを、思いつくままで" class="rmxc-67yol9qp4fm rmxc-1us01guytcazf" style=""></textarea></div><div hidden="" data-rmx-key="companyPhone" class="rmxc-2to77pam79i8"><input type="text" name="companyPhone" tabindex="-1" autocomplete="off" value="" style=""></div><div data-rmx-key="privacyPolicy" class="rmxc-q9d7z51tja318"><label class="rmxc-oqrs6osg5qlj"><input type="checkbox" name="privacyPolicy" required="" class="rmxc-kh2f0on3qaid" style=""><span><a href="https://www.techtalk.jp/privacy" target="_blank" rel="noopener" class="rmxc-mq2pimpdcjid">プライバシーポリシー</a>に同意する</span></label></div><!-- rmx:h:h3285cecd --><div class="rmxc-27n97gx8ct2l"><button type="submit" class="rmxc-1smnmad1d3ji08" aria-busy="false">相談を送る</button></div><!-- /rmx:h --></form><!-- /rmx:f --></div></div></div></div></section></main><footer class="rmxc-1rpklgq1l0z09x"><div class="rmxc-1yhdtacc6mcon rmxc-n41ujbe35pbw"><span class="rmxc-1cwagfc4k2f5r">TechTalk</span><nav aria-label="フッター" class="rmxc-1r3cs75ymvrcq"><a href="https://www.techtalk.jp/#when" class="rmxc-jigeq4co1x31">こんなとき</a><a href="https://www.techtalk.jp/#approach" class="rmxc-jigeq4co1x31">進め方</a><a href="https://www.techtalk.jp/#products" class="rmxc-jigeq4co1x31">プロダクト</a><a href="https://www.techtalk.jp/#profile" class="rmxc-jigeq4co1x31">代表</a><a href="https://www.techtalk.jp/#company" class="rmxc-jigeq4co1x31">会社概要</a><a href="https://records.techtalk.jp/" target="_blank" rel="noopener" class="rmxc-jigeq4co1x31 rmxc-tfzw0s1dx69d7 rmxc-1pgtwm7tqkuzu">TechTalk Records<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><a href="https://www.techtalk.jp/privacy" class="rmxc-jigeq4co1x31">プライバシーポリシー</a></nav></div></footer>
+</body></html>

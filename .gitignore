@@ -4,3 +4,10 @@ node_modules/
 vendor/
 # 下調べの出力（他社サイトの写しを含むので入れない）
 lab/out/
+
+# 試作 2 の記録（練習の 1 回 1 フォルダ）
+prototypes/02-say-and-pick/out/
+
+# 試作 2 で取り込んだ写し（他社サイトが入りうる）。自分のサイトの最初の 1 つだけ入れる
+prototypes/02-say-and-pick/copy/*
+!prototypes/02-say-and-pick/copy/techtalk-jp
