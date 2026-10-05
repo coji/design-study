@@ -66,6 +66,8 @@ const electronApp = await electron.launch({
 })
 try {
   const page = await electronApp.firstWindow()
+  // ビルドしたばかりのアプリは、最初の起動に時間がかかることがある
+  page.setDefaultTimeout(60000)
   page.on('pageerror', (error) => check(false, `画面でエラー: ${error.message}`))
   const copy = page.frameLocator('#stage .cell:not(.off) iframe')
   const prompt = page.locator('#prompt')
