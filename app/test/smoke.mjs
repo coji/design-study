@@ -53,8 +53,10 @@ const check = (ok, what) => {
   if (!ok) process.exitCode = 1
 }
 
+// SMOKE_APP に、ビルドしたアプリの実行ファイルを指定すると、それを試す（配る形で動くかの確認）
+const packaged = process.env.SMOKE_APP
 const electronApp = await electron.launch({
-  args: [app],
+  ...(packaged ? { executablePath: packaged, args: [] } : { args: [app] }),
   env: {
     ...process.env,
     DESIGN_STUDY_DATA_DIR: data,
@@ -68,6 +70,18 @@ try {
   const copy = page.frameLocator('#stage .cell:not(.off) iframe')
   const prompt = page.locator('#prompt')
   const visible = () => page.locator('#stage .cell:not(.off) .tag b').allTextContents()
+
+  console.log('キーボードで指す')
+  await copy.locator('body').waitFor()
+  await page.locator('#stage .cell:not(.off) iframe').focus()
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('Enter')
+  await prompt.filter({ hasText: 'どう感じましたか' }).waitFor()
+  check(
+    (await page.locator('#thread').innerText()).includes('指したところ'),
+    '矢印キーと Enter で要素を指せる'
+  )
 
   console.log('指す')
   await copy.locator('h1').click()

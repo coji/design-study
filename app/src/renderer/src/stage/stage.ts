@@ -114,8 +114,10 @@ export class Stage {
   // ---- 枠を作る、読み込む ----
   private make(index: number): Frame {
     const iframe = el('iframe')
-    iframe.title = '画面の写し'
-    iframe.tabIndex = -1
+    iframe.title =
+      index === 0 ? '画面の写し。上下の矢印キーで要素をたどり、Enter で指します' : '画面の写し'
+    // 指すための枠には、キーボードで入れる
+    iframe.tabIndex = index === 0 ? 0 : -1
     const veil = el('div', 'veil', el('span', 'dot'), el('span', 'veil-text'))
     const wrap = el('div', 'frame', iframe, veil)
     const tag = el('div', 'tag')
@@ -221,14 +223,37 @@ export class Stage {
       if (active()) pickable(e.target)?.setAttribute('data-ds-hover', '')
     })
     doc.addEventListener('mouseleave', unhover)
-    doc.addEventListener('click', (e) => {
-      const target = pickable(e.target)
-      if (!target || !active()) return
+    const choose = (target: HTMLElement): void => {
       unhover()
       // 値を測るあいだは枠線を外す（枠線が値に混ざらないように）。測り終えたら付け直す
       this.mark(null)
       this.on.point(target)
       this.mark(this.pointed())
+    }
+    doc.addEventListener('click', (e) => {
+      const target = pickable(e.target)
+      if (target && active()) choose(target)
+    })
+    // マウスを使わずに指す: 枠に入って、上下の矢印キーで要素を順にたどり、Enter で指す
+    doc.addEventListener('keydown', (e) => {
+      if (!active() || !['ArrowDown', 'ArrowUp', 'Enter'].includes(e.key)) return
+      const current = doc.querySelector<HTMLElement>('[data-ds-hover]')
+      if (e.key === 'Enter') {
+        if (!current) return
+        e.preventDefault()
+        choose(current)
+        return
+      }
+      e.preventDefault()
+      const all = [...doc.querySelectorAll<HTMLElement>(TEXTY)].filter(
+        (x) => x.getClientRects().length > 0
+      )
+      const at = current ? all.indexOf(current) : this.pointed() ? all.indexOf(this.pointed()!) : -1
+      const next = all[Math.max(0, Math.min(all.length - 1, at + (e.key === 'ArrowDown' ? 1 : -1)))]
+      if (!next) return
+      unhover()
+      next.setAttribute('data-ds-hover', '')
+      next.scrollIntoView({ block: 'center' })
     })
   }
   mark(target: Element | null): void {

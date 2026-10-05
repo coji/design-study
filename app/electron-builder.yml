@@ -5,39 +5,34 @@ directories:
 files:
   - '!**/.vscode/*'
   - '!src/*'
+  - '!scripts/*'
+  - '!test/*'
+  - '!test-results/*'
+  - '!vendor/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
-  - '!{.eslintcache,eslint.config.mjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
-  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!vitest.config.ts'
+  - '!{.eslintcache,eslint.config.mjs,.prettierignore,.prettierrc.yaml,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml,pnpm-workspace.yaml}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 asarUnpack:
   - resources/**
-win:
-  executableName: app
-nsis:
-  artifactName: ${name}-${version}-setup.${ext}
-  shortcutName: ${productName}
-  uninstallDisplayName: ${productName}
-  createDesktopShortcut: always
+# 同梱するもののライセンス。OpenAI の DevKit は非商用ライセンスで、配るときにライセンスの写しを添える決まりがある
+extraResources:
+  - from: vendor/sign-in-with-chatgpt-devkit/LICENSE
+    to: licenses/sign-in-with-chatgpt-devkit-LICENSE.txt
+  - from: ../LICENSE
+    to: licenses/design-study-LICENSE.txt
+  - from: ../THIRD_PARTY.md
+    to: licenses/THIRD_PARTY.md
 mac:
-  entitlementsInherit: build/entitlements.mac.plist
-  extendInfo:
-    - NSCameraUsageDescription: Application requests access to the device's camera.
-    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
-    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
-    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  target:
+    - dmg
+  category: public.app-category.graphics-design
+  # Apple の開発者登録がまだないので、開発者の署名も公証もしない。手元だけで通る署名（ad-hoc）を付ける。
+  # 署名がまったくないと、Apple シリコンの Mac では「壊れている」と出て開けない。開くときの警告は出る（README に開き方を書いている）
+  identity: '-'
+  hardenedRuntime: false
   notarize: false
 dmg:
-  artifactName: ${name}-${version}.${ext}
-linux:
-  target:
-    - AppImage
-    - snap
-    - deb
-  maintainer: electronjs.org
-  category: Utility
-appImage:
-  artifactName: ${name}-${version}.${ext}
+  artifactName: design-study-${version}-${arch}.${ext}
 npmRebuild: false
-publish:
-  provider: generic
-  url: https://example.com/auto-updates
