@@ -249,6 +249,11 @@ try {
   )
 
   console.log('設定')
+  check(
+    existsSync(join(data, 'theory.md')) &&
+      readFileSync(join(data, 'theory.md'), 'utf8').includes('理論帳'),
+    '理論帳が、置き場所に用意されている'
+  )
   await page.getByRole('link', { name: /設定/ }).click()
   check((await page.locator('#records').innerText()).includes(data), '写しと記録の置き場所が出る')
   await page.screenshot({ path: join(shots, '4-settings.png') })

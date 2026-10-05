@@ -50,7 +50,17 @@ async function describe(): Promise<Session> {
     model: await currentModel().catch(() => undefined)
   }
 }
+let asked = false
 export async function session(): Promise<Session> {
+  // 試験のとき（AI を呼ばずに再生するとき）は、サインインの情報に触れない
+  if (process.env['DESIGN_STUDY_MOCK']) return { connected: false }
+  // サインインの情報は、OS のキーチェーンの鍵で暗号化している。初めて使うときや、アプリを入れ替えたあとは、
+  // OS が「キーチェーンの使用を許可するか」を尋ね、答えるまでアプリの処理が止まる。
+  // 窓が出る前に止まると何も見えないので、最初の 1 回は、窓が出るのを少し待ってから触れる
+  if (!asked) {
+    asked = true
+    await new Promise((done) => setTimeout(done, 800))
+  }
   try {
     return await describe()
   } catch (error) {

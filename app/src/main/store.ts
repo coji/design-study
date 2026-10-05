@@ -1,7 +1,7 @@
 // 使う人が作るもの（取り込んだ写し、記録、理論帳）の置き場所。リポジトリの中には置かない。
 // 既定はアプリの保存先（userData）の中。設定で、別のフォルダに変えられる（記録を、自分の非公開の場所に置きたいとき）。
 import { app } from 'electron'
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import type { Settings } from '@shared/schema'
@@ -41,7 +41,8 @@ export async function theory(): Promise<string> {
   const file = join(dataDir(), 'theory.md')
   if (!existsSync(file)) {
     await mkdir(dataDir(), { recursive: true })
-    await copyFile(bundledTheory, file)
+    // アプリに入っている版は、配る形では 1 つの書庫（asar）の中にある。読んでから書く（そのまま写す操作は、書庫の中のファイルには使えないことがある）
+    await writeFile(file, await readFile(bundledTheory))
   }
   return readFile(file, 'utf8')
 }

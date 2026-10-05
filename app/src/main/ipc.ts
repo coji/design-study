@@ -17,7 +17,15 @@ import { session, signIn, signOut } from './auth'
 import * as pages from './pages'
 import * as records from './records'
 import { shot, shotAll } from './shots'
-import { copiesDir, dataDir, lastRoundFile, recordsDir, setDataDir, settings } from './store'
+import {
+  copiesDir,
+  dataDir,
+  lastRoundFile,
+  recordsDir,
+  setDataDir,
+  settings,
+  theory
+} from './store'
 
 /** 準備ができる前に呼ぶ必要がある */
 export function registerSchemes(): void {
@@ -103,6 +111,9 @@ async function round(event: IpcMainInvokeEvent, id: string, input: unknown): Pro
 }
 
 export function registerIpc(): void {
+  // 理論帳を、置き場所に用意しておく（初めて開いたときから、中を読んだり書き足したりできるように）
+  void theory().catch((error) => console.error('理論帳を用意できませんでした', error))
+
   serve('copy', copiesDir)
   serve('record', recordsDir)
 

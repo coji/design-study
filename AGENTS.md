@@ -34,7 +34,7 @@ Design Study は、溝口浩二（coji）がデザインの判断を学ぶため
 - **AI のつなぎ方:** Sign in with ChatGPT（OpenAI の DevKit）で、使う人の ChatGPT のプランの枠を使う。画像つきの診断は Responses API を直接呼ぶ。写しの修正は Codex app-server に任せる（Codex は入っている前提）
 - **アプリの名前:** Design Study（2026-10-05 に決めた）。デザインを学ぶ道具だと、そのまま言う名前。英語の study には「習作」の意味もある。和の言葉に意味を込めた案は却下された。ChatGPT 側の登録名もこれにする（下調べで作った「Design Practice Lab」の登録は使わない）
 - **DevKit の取り込み方:** リポジトリには入れない。`app/scripts/setup-devkit.mjs` が、決めた版を GitHub から取得し、2 か所に手を入れてビルドする。ビルドしたアプリには DevKit のコードが入るので、アプリは非商用の目的でしか使えず、配れない（`THIRD_PARTY.md`）。リポジトリのコードと文書は MIT ライセンス
-- **写しと記録の置き場所:** アプリの保存先（`~/Library/Application Support/design-study/data/`）。設定で別のフォルダに変えられる。リポジトリの中には置かない
+- **写しと記録の置き場所:** アプリの保存先（`~/Library/Application Support/Design Study/data/`）。設定で別のフォルダに変えられる。リポジトリの中には置かない
 - **本番のアプリの作り:** `app/` に置く。Electron + electron-vite、画面は React + TypeScript、配布は electron-builder。画面の行き来は React Router をライブラリとして使う（フレームワークモードは、サーバーがないので使わない）。左の画面（写しを測る、案を当てる）は素の TypeScript のままにし、React からは 1 つの部品として包む。AI の返事と記録の形は Zod で検証する。写しは `srcdoc` の iframe に入れ、画像とフォントは独自のプロトコル（`copy://`）で配る（2026-10-05 に、中の DOM に触れること、フォントと画像が読めることを確かめた）
 - **アプリの枠の見た目:** 無彩色にする。見ている画面の色の判断を狂わせないため。主役は取り込んだ画面
 - **記録:** 1 回 1 フォルダのただのファイル（画像と Markdown）。アプリの内部の管理に jj を使う。学習の記録は、このリポジトリとは別の非公開の場所に置く（他社サイトの写しが入るため）
