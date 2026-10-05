@@ -1,7 +1,7 @@
 // 画面を、練習用の写しとして取り込む。
 //
 // 写しは、表示された HTML、効いている CSS、フォント、画像を 1 つのフォルダにまとめた静的なページで、スクリプトは外す。
-// 機械で固めるだけで、ほとんどのサイトは元と画素単位で一致する（docs/design-memo.md の下調べ）。
+// 機械で固めるだけで、ほとんどのサイトは元と画素単位で一致する（作る前の下調べで確かめた）。
 // 取り込みは、アプリの中のブラウザ（Chromium）で行う。ログインが要る画面は、窓を開いてログインしてもらってから取り込む。
 import { BrowserWindow, session, type WebContents } from 'electron'
 import { createHash } from 'node:crypto'

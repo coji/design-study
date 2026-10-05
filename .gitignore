@@ -11,3 +11,6 @@ prototypes/02-say-and-pick/out/
 # 試作 2 で取り込んだ写し（他社サイトが入りうる）。自分のサイトの最初の 1 つだけ入れる
 prototypes/02-say-and-pick/copy/*
 !prototypes/02-say-and-pick/copy/techtalk-jp
+
+# 溝口個人の文書（設計メモ、リニューアルの記録、文書の共有先）。公開のリポジトリには入れない
+docs/private/
