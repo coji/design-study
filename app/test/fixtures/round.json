@@ -1,0 +1,136 @@
+[
+  {
+    "t": 300,
+    "event": {
+      "type": "saw",
+      "ok": true
+    }
+  },
+  {
+    "t": 900,
+    "event": {
+      "type": "partial",
+      "text": "見出しが"
+    }
+  },
+  {
+    "t": 1100,
+    "event": {
+      "type": "partial",
+      "text": "見出しが間延びして見える、"
+    }
+  },
+  {
+    "t": 1300,
+    "event": {
+      "type": "reading",
+      "text": "見出しが間延びして見える、という指摘だと読みました。"
+    }
+  },
+  {
+    "t": 1500,
+    "event": {
+      "type": "direction",
+      "count": 1
+    }
+  },
+  {
+    "t": 1600,
+    "event": {
+      "type": "direction",
+      "count": 2
+    }
+  },
+  {
+    "t": 1700,
+    "event": {
+      "type": "direction",
+      "count": 3
+    }
+  },
+  {
+    "t": 2000,
+    "event": {
+      "type": "original",
+      "original": {
+        "theory": {
+          "name": "見出しは詰める",
+          "claim": "文字が大きいほど、字間と行間を狭める。",
+          "level": "経験則と指針",
+          "source": "理論帳 v0"
+        },
+        "verdict": "食い違う",
+        "verdict_text": "字間が本文と同じ設定のままです。"
+      }
+    }
+  },
+  {
+    "t": 2600,
+    "event": {
+      "type": "variant",
+      "variant": {
+        "label": "字間を詰める",
+        "what_changed": "字間を -0.04em にします。",
+        "responds": "間延びを抑えます。",
+        "css": "[data-ds-target] { letter-spacing: -0.04em; }",
+        "html": null,
+        "edits": null,
+        "theory": {
+          "name": "見出しは詰める",
+          "claim": "文字が大きいほど、字間と行間を狭める。",
+          "level": "経験則と指針",
+          "source": "理論帳 v0"
+        },
+        "verdict": "合う",
+        "verdict_text": "大きい文字ほど詰める、に合います。"
+      }
+    }
+  },
+  {
+    "t": 3200,
+    "event": {
+      "type": "variant",
+      "variant": {
+        "label": "言葉を短くする",
+        "what_changed": "見出しを 1 文に縮めます。",
+        "responds": "読む量を減らします。",
+        "css": "",
+        "html": "短い見出しにする。",
+        "edits": null,
+        "theory": null,
+        "verdict": "該当なし",
+        "verdict_text": ""
+      }
+    }
+  },
+  {
+    "t": 3800,
+    "event": {
+      "type": "variant",
+      "variant": {
+        "label": "小さくする",
+        "what_changed": "文字サイズを 40px にします。",
+        "responds": "重さを抑えます。",
+        "css": "[data-ds-target] { font-size: 40px; }",
+        "html": null,
+        "edits": null,
+        "theory": {
+          "name": "見出しは詰める",
+          "claim": "文字が大きいほど、字間と行間を狭める。",
+          "level": "経験則と指針",
+          "source": "理論帳 v0"
+        },
+        "verdict": "合う",
+        "verdict_text": "大きさを抑えます。"
+      }
+    }
+  },
+  {
+    "t": 3900,
+    "event": {
+      "type": "done",
+      "model": "mock",
+      "seconds": 3.9
+    }
+  }
+]

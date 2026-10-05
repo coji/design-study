@@ -2,15 +2,18 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import { registerCopyScheme, serveCopies } from './copy'
+import { registerIpc, registerSchemes } from './ipc'
 
-registerCopyScheme()
+registerSchemes()
 
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1440,
     height: 900,
+    minWidth: 1000,
+    minHeight: 640,
+    title: 'Design Study',
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -52,7 +55,7 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  serveCopies()
+  registerIpc()
 
   createWindow()
 

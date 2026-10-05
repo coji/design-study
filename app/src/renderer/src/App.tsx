@@ -1,85 +1,97 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
+import { createHashRouter, NavLink, Outlet, RouterProvider } from 'react-router'
+import { Composer } from './components/Composer'
+import { LeftBar } from './components/LeftBar'
+import { RecordDetail, RecordList } from './components/Records'
+import { ReviewImages } from './components/ReviewImages'
+import { SettingsPage } from './components/SettingsPage'
+import { Thread } from './components/Thread'
+import { practice } from './practice/controller'
+import { usePractice } from './practice/usePractice'
 import { StageView } from './stage/StageView'
-import { describe, pathOf, type Described } from './stage/measure'
-import { WIDTHS, type Stage, type Width } from './stage/stage'
 
-// いまは骨組み。左の画面で指すと、右に値が出るところまで。試作 2 の流れ（一言、案、選ぶ、残す）は、これから移す
-function App(): React.JSX.Element {
-  const [html, setHtml] = useState('')
-  const [width, setWidth] = useState<Width>('pc')
-  const [pointed, setPointed] = useState<Described | null>(null)
-  const stage = useRef<Stage | null>(null)
+/** 画面の枠組み。左が画面、右が言葉。左の画面は、右の列で何を見ていても開いたままにする */
+function Layout(): React.JSX.Element {
+  const { html, review, records, session, pages } = usePractice()
 
   useEffect(() => {
-    void window.api.copyHtml('techtalk-jp').then(setHtml)
+    void practice.init()
+    document.addEventListener('keydown', practice.onKey)
+    return () => document.removeEventListener('keydown', practice.onKey)
   }, [])
 
-  const viewport = (w: Width): string => `${w === 'pc' ? 'PC' : 'スマホ'}幅 ${WIDTHS[w]}px`
-
-  function point(el: HTMLElement): void {
-    setPointed(describe(el, viewport(width)))
-    stage.current?.setPath(pathOf(el))
-  }
-  function changeWidth(next: Width): void {
-    setWidth(next)
-    const s = stage.current
-    if (!s) return
-    s.setWidth(next)
-    // 並び直しが済んでから、その幅の値に取り直す
-    requestAnimationFrame(() =>
-      requestAnimationFrame(() => {
-        const el = s.pointed()
-        if (!el) return
-        s.mark(null)
-        setPointed(describe(el, viewport(next)))
-        s.mark(el)
-      })
-    )
-  }
-
+  const tab = ({ isActive }: { isActive: boolean }): string => (isActive ? 'tab current' : 'tab')
   return (
     <div className="app">
       <main className="left" aria-label="画面">
-        <div className="bar">
-          <span className="seg" role="group" aria-label="画面の幅">
-            {(['pc', 'sp'] as const).map((w) => (
-              <button key={w} aria-pressed={width === w} onClick={() => changeWidth(w)}>
-                {w === 'pc' ? 'PC 幅' : 'スマホ幅'}
-              </button>
-            ))}
-          </span>
-        </div>
+        <LeftBar />
         <div className="stagewrap">
-          <StageView
-            html={html}
-            events={{ point, cell: () => {}, key: () => {} }}
-            onReady={(s) => (stage.current = s)}
-          />
+          {/* 記録を見直すあいだ、写しの枠は消さずに隠す（開いたままにして、戻ったときに読み込み直さない） */}
+          <div className={review ? 'away' : undefined} style={{ position: 'absolute', inset: 0 }}>
+            <StageView
+              html={html}
+              events={{ point: practice.pointed, cell: practice.look, key: practice.onKey }}
+              onReady={(stage) => practice.attach(stage)}
+            />
+          </div>
+          <ReviewImages />
+          {!html && pages.length === 0 && (
+            <p className="muted empty">左上に URL を入れて、練習に使う画面を取り込んでください。</p>
+          )}
         </div>
       </main>
       <aside className="right" aria-label="言葉のやりとりと記録">
-        <div className="bar" />
-        <div id="thread">
-          {pointed ? (
-            <div className="card">
-              <h3>指したところ（{pointed.viewport}）</h3>
-              <p className="quote">{pointed.text || `（${pointed.tag}）`}</p>
-              <dl className="values">
-                {Object.entries(pointed.values).map(([name, value]) => (
-                  <div key={name} style={{ display: 'contents' }}>
-                    <dt>{name}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          ) : (
-            <p className="muted">気になるところを、左の画面でクリックしてください</p>
-          )}
-        </div>
+        <nav className="bar">
+          <span className="tabs" id="tabs">
+            <NavLink to="/" end className={tab}>
+              やりとり
+            </NavLink>
+            <NavLink to="/records" className={tab}>
+              記録（{records.length}）
+            </NavLink>
+            <NavLink to="/settings" className={tab}>
+              設定{session && !session.connected ? '（未接続）' : ''}
+            </NavLink>
+          </span>
+        </nav>
+        <Outlet />
+        <p className="sr" role="status" id="status" />
       </aside>
     </div>
   )
 }
 
-export default App
+function Practice(): React.JSX.Element {
+  const { session } = usePractice()
+  return (
+    <>
+      {session && !session.connected && (
+        <div className="notice">
+          <div className="alert" role="alert">
+            ChatGPT につながっていません。案を作るには、「設定」でサインインしてください。
+          </div>
+        </div>
+      )}
+      <Thread />
+      <Composer />
+    </>
+  )
+}
+
+// サーバーがないので、アドレスの # から先で画面を切り替える
+const router = createHashRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Practice /> },
+      { path: 'records', element: <RecordList /> },
+      { path: 'records/:id', element: <RecordDetail /> },
+      { path: 'settings', element: <SettingsPage /> }
+    ]
+  }
+])
+
+export default function App(): React.JSX.Element {
+  return <RouterProvider router={router} />
+}
