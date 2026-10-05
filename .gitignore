@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+# OpenAI の DevKit は非商用ライセンス。取り込み方が決まるまでリポジトリに入れない
+vendor/
+# 下調べの出力（他社サイトの写しを含むので入れない）
+lab/out/
